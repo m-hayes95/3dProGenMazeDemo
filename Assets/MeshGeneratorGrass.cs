@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code from youtube tutorial: created by Brackeys
+// Video Link: https://www.youtube.com/watch?v=64NblGkAabk
 public class MeshGeneratorGrass : MonoBehaviour
 {
     Mesh mesh; // Ref to game objects mesh.
@@ -33,8 +35,10 @@ public class MeshGeneratorGrass : MonoBehaviour
         // Apply new shape to scene.
         UpdateMesh();
 
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Re-gen terrain with a random range for perlin noise result multiplier.
             perlinNoiseResultMultiplier = Random.Range(0, 15);
             CreateShape();
             UpdateMesh();
@@ -113,7 +117,7 @@ public class MeshGeneratorGrass : MonoBehaviour
         // When  there is no vertices, stop drawing.
         if (vertices == null)
             return;
-        // Draw a sphere using Gizmos at each vertices point using the vertices array.
+        // Draw a sphere at each vertices point using the vertices array using Gizmos .
         for (int i = 0; i < vertices.Length; i++)
         {
             float sphereRadius = 0.1f;
