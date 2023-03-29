@@ -34,16 +34,6 @@ public class MeshGeneratorGrass : MonoBehaviour
     {
         // Apply new shape to scene.
         UpdateMesh();
-
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Re-gen terrain with a random range for perlin noise result multiplier.
-            perlinNoiseResultMultiplier = Random.Range(0, 15);
-            CreateShape();
-            UpdateMesh();
-        }
-       
     }
 
     private void CreateShape()
@@ -112,6 +102,16 @@ public class MeshGeneratorGrass : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
+    public void ReGenerateMesh()
+    {
+        // Used on red button.
+        // Re-gen terrain with a random range for perlin noise result multiplier.
+        perlinNoiseResultMultiplier = Random.Range(0, 15);
+        CreateShape();
+        UpdateMesh();
+    }
+    
+
     private void OnDrawGizmos()
     {
         // When  there is no vertices, stop drawing.
@@ -124,4 +124,6 @@ public class MeshGeneratorGrass : MonoBehaviour
             Gizmos.DrawSphere(vertices[i], sphereRadius);
         }
     }
+
+
 }
