@@ -21,13 +21,22 @@ public class MeshGeneratorGrass : MonoBehaviour
     public float perlinNoiseMultiplierZ = .2f;
     public float perlinNoiseResultMultiplier = 2f;
 
+    // Ref to meshes texture.
+    private Texture2D texture;
+
     private void Start()
     {
         // Assign new mesh and mesh filter.
         mesh = new Mesh(); 
         GetComponent<MeshFilter>().mesh = mesh;
+        // Create and assign new texture.
+        texture = new Texture2D(xSize, zSize);
+        GetComponent<Renderer>().material.mainTexture = texture;
+
         // Create the meshes shape, using Coroutine to see how the mesh is being generated.
         CreateShape();
+        TextureMesh();
+
     }
 
     private void Update()
@@ -90,6 +99,23 @@ public class MeshGeneratorGrass : MonoBehaviour
         }
     }
 
+    private void TextureMesh()
+    {
+        // Loop through x and z size 
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int z = 0; z < zSize; z++)
+            {
+                // Use perlin noise to create gradient for materials.
+                float gradientValue = Mathf.PerlinNoise(x, z);
+                float greenValue = Random.Range(.1f, 1f);
+                // Set the pixel colour using the vlaue from the perlin noise method and random green value.
+                texture.SetPixel(x, z, new Color(gradientValue, greenValue, gradientValue));
+            }
+        }
+        texture.Apply(); // Apply new texture.
+    }
+
     private void UpdateMesh()
     {
         
@@ -108,6 +134,7 @@ public class MeshGeneratorGrass : MonoBehaviour
         // Re-gen terrain with a random range for perlin noise result multiplier.
         perlinNoiseResultMultiplier = Random.Range(0, 15);
         CreateShape();
+        TextureMesh();
         UpdateMesh();
     }
     
