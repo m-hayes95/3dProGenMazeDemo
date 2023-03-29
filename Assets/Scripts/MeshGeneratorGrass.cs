@@ -20,6 +20,8 @@ public class MeshGeneratorGrass : MonoBehaviour
     public float perlinNoiseMultiplierX = .2f;
     public float perlinNoiseMultiplierZ = .2f;
     public float perlinNoiseResultMultiplier = 2f;
+    // Ref to random green vlaue for texture Mesh.
+    public float greenValue;
 
     // Ref to meshes texture.
     private Texture2D texture;
@@ -108,7 +110,7 @@ public class MeshGeneratorGrass : MonoBehaviour
             {
                 // Use perlin noise to create gradient for materials.
                 float gradientValue = Mathf.PerlinNoise(x, z);
-                float greenValue = Random.Range(.1f, 1f);
+                greenValue = Random.Range(.1f, 1f);
                 // Set the pixel colour using the vlaue from the perlin noise method and random green value.
                 texture.SetPixel(x, z, new Color(gradientValue, greenValue, gradientValue));
             }
