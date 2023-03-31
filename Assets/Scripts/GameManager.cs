@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     private bool clientOneHeightPrefMet, clientTwoHeightPrefMet;
     // Store players points, new game starts at 0.
     [SerializeField]
-    private int playerPoints = 0;
+    public int playerPoints = 0;
 
     private void Update()
     {

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class ClientScript : MonoBehaviour
 {
     public MeshGeneratorLand meshGeneratorLand;
+    public UIManager uiManager;
     // Threshold value to compare agains mesh generators value.
     private float greenValueThreshold = 0.6f, perlinNoiseThreshold = 7f;
     // Check if values generated are over the client's threshold.
@@ -87,6 +89,55 @@ public class ClientScript : MonoBehaviour
             GenerateClients();
             ClientsLikes();
         }
+        // Client 1 height pref, call corrosponding ui text to show on player screen.
+        if (clientOneHeightPreference == 1)
+        {
+            uiManager.client1LikesHighHills.enabled = true;
+        } else uiManager.client1LikesHighHills.enabled= false;
+
+        if (clientOneHeightPreference == 0)
+        {
+            uiManager.client1DislikesHighHills.enabled = true;
+        }
+        else uiManager.client1DislikesHighHills.enabled = false;
+        // Client 1 green pref.
+        if (clientOneGreenPreference == 1)
+        {
+            uiManager.client1LikesGreenHills.enabled = true;
+        }
+        else uiManager.client1LikesGreenHills.enabled = false;
+
+        if (clientOneGreenPreference == 0)
+        {
+            uiManager.client1DislikesGreenHills.enabled = true;
+        }
+        else uiManager.client1DislikesGreenHills.enabled = false;
+
+        // Client 2 height pref, call corrosponding ui text to show on player screen.
+        if (clientTwoHeightPreference == 1)
+        {
+            uiManager.client2LikesHighHills.enabled = true;
+        }
+        else uiManager.client2LikesHighHills.enabled = false;
+
+        if (clientTwoHeightPreference == 0)
+        {
+            uiManager.client2DislikesHighHills.enabled = true;
+        }
+        else uiManager.client2DislikesHighHills.enabled = false;
+        // Client 2 green pref.
+        if (clientTwoGreenPreference == 1)
+        {
+            uiManager.client2LikesGreenHills.enabled = true;
+        }
+        else uiManager.client2LikesGreenHills.enabled = false;
+
+        if (clientTwoGreenPreference == 0)
+        {
+            uiManager.client2DislikesGreenHills.enabled = true;
+        }
+        else uiManager.client2DislikesGreenHills.enabled = false;
+
     }
 
     private void GenerateClients()
