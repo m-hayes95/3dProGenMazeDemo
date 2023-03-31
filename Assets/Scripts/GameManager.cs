@@ -12,12 +12,13 @@ public class GameManager : MonoBehaviour
     private bool clientOneGreenPrefMet, clientTwoGreenPrefMet;
     [SerializeField]
     private bool clientOneHeightPrefMet, clientTwoHeightPrefMet;
+    // Store players points, new game starts at 0.
+    [SerializeField]
+    private int playerPoints = 0;
 
     private void Update()
     {
         CheckIfClientsPreferencesHaveBeenMet();
-
-        
     }
 
     private void CheckIfClientsPreferencesHaveBeenMet()
@@ -88,5 +89,50 @@ public class GameManager : MonoBehaviour
         else clientTwoHeightPrefMet = false;
 
        
+    }
+
+    public void SubmitViewForClientOne()
+    {
+        // If veiw is submitted and green check is met + 50 points.
+        if (clientOneGreenPrefMet == true)
+        {
+            playerPoints += 50;
+        }
+        // If veiw is submitted and height check is met + 50 points.
+        if (clientOneHeightPrefMet == true)
+        {
+            playerPoints += 50;
+        }
+        // If both checks are met bonus points are earned.
+        if (clientOneGreenPrefMet == true && clientOneHeightPrefMet == true)
+        {
+            playerPoints += 100;
+        }
+        // If no checks have been met, player fails and loses 50 points.
+        if (clientOneGreenPrefMet == false && clientOneHeightPrefMet == false)
+        {
+            playerPoints -= 50;
+        }
+    }
+
+    public void SubmitViewForClientTwo()
+    {
+        if (clientTwoGreenPrefMet == true)
+        {
+            playerPoints += 50;
+        }
+        if (clientTwoHeightPrefMet == true)
+        {
+            playerPoints += 50;
+        }
+        if (clientTwoGreenPrefMet == true && clientTwoHeightPrefMet == true)
+        {
+            playerPoints += 100;
+        }
+
+        if (clientTwoGreenPrefMet == false && clientTwoHeightPrefMet == false)
+        {
+            playerPoints -= 50;
+        }
     }
 }
