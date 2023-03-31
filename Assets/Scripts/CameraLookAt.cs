@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Camera look code from Brackeys https://www.youtube.com/watch?v=_QajrabyTJc
+
 public class CameraLookAt : MonoBehaviour
 {
     public float mouseSensitivity = 200f;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Code from youtube tutorial: created by Brackeys
+// Mesh generator code from youtube tutorial: created by Brackeys
 // Video Link: https://www.youtube.com/watch?v=64NblGkAabk
 public class MeshGeneratorLand : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class MeshGeneratorLand : MonoBehaviour
         texture = new Texture2D(xSize, zSize);
         GetComponent<Renderer>().material.mainTexture = texture;
 
-        // Create the meshes shape, using Coroutine to see how the mesh is being generated.
+        // Create the meshes shape, and apply the new texture.
         CreateShape();
         TextureMesh();
 
@@ -113,7 +113,7 @@ public class MeshGeneratorLand : MonoBehaviour
             {
                 // Use perlin noise to create gradient for materials.
                 float gradientValue = Mathf.PerlinNoise(x, z);
-                greenValue = Random.Range(.1f, 1f);
+                greenValue = Random.Range(0,1.1f);
                 // Set the pixel colour using the vlaue from the perlin noise method and random green value.
                 texture.SetPixel(x, z, new Color(gradientValue, greenValue, gradientValue));
             }

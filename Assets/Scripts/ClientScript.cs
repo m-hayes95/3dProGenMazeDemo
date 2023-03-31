@@ -7,7 +7,7 @@ public class ClientScript : MonoBehaviour
 {
     public MeshGeneratorLand meshGeneratorLand;
     // Threshold value to compare agains mesh generators value.
-    private float greenValueThreshold = 0.7f, perlinNoiseThreshold = 8f;
+    private float greenValueThreshold = 0.6f, perlinNoiseThreshold = 7f;
     // Check if values generated are over the client's threshold.
     public bool isGreenValueOverThreshold;
     public bool isPerlinNoiseValueOverThreshold;

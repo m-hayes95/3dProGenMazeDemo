@@ -20,14 +20,14 @@ public class PlayerScript : MonoBehaviour
         transform.Translate(moveDir * playerSpeed * Time.deltaTime);
 
         // Submit view for client 1 on key prees.
-        if (Input.GetKeyDown(KeyCode.Q) && viewSubmittedForClient1 == false)
+        if (Input.GetKeyDown("1") && viewSubmittedForClient1 == false)
         {
             gameManager.SubmitViewForClientOne(); // Call the sumbit view method from the game manager script.
             viewSubmittedForClient1 = true; // Bool used to stop both methods being called at the same time.
         }
 
         // Submit view for client 2 after player has submitted view for client 1.
-        if (Input.GetKeyDown(KeyCode.E) && viewSubmittedForClient1 == true && viewSubmittedForClient2 == false)
+        if (Input.GetKeyDown("2") && viewSubmittedForClient1 == true && viewSubmittedForClient2 == false)
         {
             gameManager.SubmitViewForClientTwo(); // Call the sumbit view method from the game manager script.
             viewSubmittedForClient2 = true;

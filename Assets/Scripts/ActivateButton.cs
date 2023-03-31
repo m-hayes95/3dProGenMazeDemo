@@ -14,6 +14,7 @@ public class ActivateButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // On input, re-gen terrain.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             meshGeneratorLand.ReGenerateMesh();
