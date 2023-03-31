@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 49022534}
   - component: {fileID: 49022533}
   m_Layer: 0
-  m_Name: r
+  m_Name: Ocean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,7 +871,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961712dc7d5914f45a9fd7c2ec5fb287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshGeneratorGrass: {fileID: 1466557515}
+  meshGeneratorLand: {fileID: 1466557515}
+  isGreenValueOverThreshold: 0
+  isPerlinNoiseValueOverThreshold: 0
+  clientOne: 
+  clientTwo: 
+  clientThree: 
+  clientOneGreenPreference: 0
+  clientTwoGreenPreference: 0
+  clientThreeGreenPreference: 0
+  clientOneHeightPreference: 0
+  clientTwoHeightPreference: 0
+  clientThreeHeightPreference: 0
 --- !u!4 &1074304956
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1105,7 @@ GameObject:
   - component: {fileID: 1466557516}
   - component: {fileID: 1466557515}
   m_Layer: 0
-  m_Name: MeshGeneratorGrass
+  m_Name: MeshGeneratorTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,6 +1518,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &1766505354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1766505356}
+  - component: {fileID: 1766505355}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1766505355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766505354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ba8ccf166feb45a096f75a0b50404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientScript: {fileID: 1074304955}
+--- !u!4 &1766505356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766505354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.795637, y: 18.486382, z: 32.477875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770677987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd716e7dc56916e4fa47751c246332ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshGeneratorGrass: {fileID: 1466557515}
+  meshGeneratorLand: {fileID: 1466557515}
 --- !u!1 &2101150483
 GameObject:
   m_ObjectHideFlags: 0

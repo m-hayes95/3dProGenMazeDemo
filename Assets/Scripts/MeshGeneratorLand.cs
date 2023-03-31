@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Code from youtube tutorial: created by Brackeys
 // Video Link: https://www.youtube.com/watch?v=64NblGkAabk
-public class MeshGeneratorGrass : MonoBehaviour
+public class MeshGeneratorLand : MonoBehaviour
 {
     Mesh mesh; // Ref to game objects mesh.
 

@@ -5,13 +5,12 @@ using UnityEngine.Rendering;
 
 public class ClientScript : MonoBehaviour
 {
-    public MeshGeneratorGrass meshGeneratorGrass;
+    public MeshGeneratorLand meshGeneratorLand;
     // Threshold value to compare agains mesh generators value.
     private float greenValueThreshold = 0.7f, perlinNoiseThreshold = 8f;
-    [SerializeField]
-    private bool isGreenValueOverThreshold;
-    [SerializeField]
-    private bool isPerlinNoiseValueOverThreshold;
+    // Check if values generated are over the client's threshold.
+    public bool isGreenValueOverThreshold;
+    public bool isPerlinNoiseValueOverThreshold;
 
     // List to add random client names.
     private List<string> chosenClientNames = new List<string>();
@@ -32,13 +31,9 @@ public class ClientScript : MonoBehaviour
     public int clientTwoHeightPreference;
     public int clientThreeHeightPreference;
 
-    // Client wants higher mountain view - Mesh Height over ...
-    // Client wants flater mountain view - Mesh Low under ... 
-    // Client wants bright green view - Green value over ... 
-    // Client wants dark green view - Green value under ...
     private void Start()
     {
-        // Array of fist names
+        // Array of fist names.
         potentialClientFirstNames = new string[10];
         potentialClientFirstNames[0] = "Tifa ";
         potentialClientFirstNames[1] = "Leon ";
@@ -50,7 +45,7 @@ public class ClientScript : MonoBehaviour
         potentialClientFirstNames[7] = "Jill ";
         potentialClientFirstNames[8] = "Barret ";
         potentialClientFirstNames[9] = "Yuffie ";
-        // Array of last names
+        // Array of last names.
         potentialClientLastNames= new string[10];
         potentialClientLastNames[0] = "Lockheart";
         potentialClientLastNames[1] = "Kennedy";
@@ -62,7 +57,7 @@ public class ClientScript : MonoBehaviour
         potentialClientLastNames[7] = "Valentine";
         potentialClientLastNames[8] = "Wallace ";
         potentialClientLastNames[9] = "Kisaragi";
-
+        // Generate random preferences with random likes.
         GenerateClients();
         ClientsLikes();
     }
@@ -70,7 +65,7 @@ public class ClientScript : MonoBehaviour
     private void Update()
     {
         
-        if (meshGeneratorGrass.greenValue > greenValueThreshold) 
+        if (meshGeneratorLand.greenValue > greenValueThreshold) 
         {
             // Set green value is above threshold bool to true.
             Debug.Log("Green Vlaue is high" );
@@ -78,7 +73,7 @@ public class ClientScript : MonoBehaviour
         }
         else isGreenValueOverThreshold = false;
 
-        if (meshGeneratorGrass.perlinNoiseResultMultiplier > perlinNoiseThreshold) 
+        if (meshGeneratorLand.perlinNoiseResultMultiplier > perlinNoiseThreshold) 
         {
             // Set perlin value is above threshold bool to true.
             Debug.Log("Perlin noise value is high");
@@ -90,14 +85,19 @@ public class ClientScript : MonoBehaviour
 
     private void GenerateClients()
     {
+        // Client one's name.
+        // Pick a random first and last name from the name arrays.
         int randomFirstName1 = Random.Range(0, potentialClientFirstNames.Length);
         int randomLastName1 = Random.Range(0, potentialClientLastNames.Length);
+        // Add the randomly chosen first and last names, then add it to a new variable for the client.
         clientOne = potentialClientFirstNames[randomFirstName1] + potentialClientLastNames[randomLastName1];
-        Debug.Log(clientOne);
+        Debug.Log(clientOne); // Show client name.
+        // Client twos name.
         int randomFirstName2 = Random.Range(0, potentialClientFirstNames.Length);
         int randomLastName2 = Random.Range(0, potentialClientLastNames.Length);
         clientTwo = potentialClientFirstNames[randomFirstName2] + potentialClientLastNames[randomLastName2];
         Debug.Log(clientTwo);
+        // Client threes name.
         int randomFirstName3 = Random.Range(0, potentialClientFirstNames.Length);
         int randomLastName3 = Random.Range(0, potentialClientLastNames.Length);
         clientThree = potentialClientFirstNames[randomFirstName3] + potentialClientLastNames[randomLastName3];
@@ -107,7 +107,8 @@ public class ClientScript : MonoBehaviour
 
     private void ClientsLikes()
     {
-        
+        // Choose a random preference for green or high terrain,
+        // then assign them to each clients current preferecne.
         clientOneGreenPreference = Random.Range(0, 2);
         clientOneHeightPreference = Random.Range(0, 2);
         clientTwoGreenPreference = Random.Range(0, 2);

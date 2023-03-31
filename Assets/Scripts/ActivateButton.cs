@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivateButton : MonoBehaviour
 {
-    public MeshGeneratorGrass meshGeneratorGrass;
+    public MeshGeneratorLand meshGeneratorLand;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class ActivateButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            meshGeneratorGrass.ReGenerateMesh();
+            meshGeneratorLand.ReGenerateMesh();
         }
         
     }
