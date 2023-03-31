@@ -1,7 +1,10 @@
 
 P2: Content Generation Demo
 
+Procedural generation code can be found on MeshGeneratorLand script within the scripts asset folder.
+
 Google docs link: https://docs.google.com/document/d/1YQ0LrKpf53qUqNj-sa8-47BZj_TkGjTa3jpYa8mOsgM/edit?usp=sharing
+
 Content generation
 
 Procedural Generated content refers to algorithmic calculations used to create the illusion of randomly generated instances. The key benefit to using Procedural Generated content is to automatically create patterns from parameters/inputs. This allows resources (time, money, and mental energy) to be saved on designing large complex patterns such as natural terrain. As the patterns are created using parameters, they can be customised to make a unique and personalised experience for players. The randomness of the results can create unintended but interesting experiences for players. They can also provide some inspiration for developers to further edit or use the procedurally generated content to fit the vision of their project. Procedural Generated content can also be created in real-time, allowing developers to reduce the game's overall file size and decrease loading times, making a more enjoyable experience for players.
