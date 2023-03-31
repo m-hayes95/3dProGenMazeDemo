@@ -876,13 +876,10 @@ MonoBehaviour:
   isPerlinNoiseValueOverThreshold: 0
   clientOne: 
   clientTwo: 
-  clientThree: 
   clientOneGreenPreference: 0
   clientTwoGreenPreference: 0
-  clientThreeGreenPreference: 0
   clientOneHeightPreference: 0
   clientTwoHeightPreference: 0
-  clientThreeHeightPreference: 0
 --- !u!4 &1074304956
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c26b05a6f8e00840b203fe90d731df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1766505355}
   playerSpeed: 3
 --- !u!54 &1716416037
 Rigidbody:
@@ -1548,6 +1546,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientScript: {fileID: 1074304955}
+  clientOneGreenPrefMet: 0
+  clientTwoGreenPrefMet: 0
+  clientOneHeightPrefMet: 0
+  clientTwoHeightPrefMet: 0
+  playerPoints: 0
 --- !u!4 &1766505356
 Transform:
   m_ObjectHideFlags: 0

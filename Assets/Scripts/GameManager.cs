@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     // Ref to client script.
     public ClientScript clientScript;
+    public PlayerScript player;
     // Check if clients green and height values have been met.
     [SerializeField]
     private bool clientOneGreenPrefMet, clientTwoGreenPrefMet;
@@ -116,23 +117,27 @@ public class GameManager : MonoBehaviour
     }
 
     public void SubmitViewForClientTwo()
-    {
-        if (clientTwoGreenPrefMet == true)
+    {   
+        if (player.viewSubmittedForClient1== true) // Need to check player has submitted view for 1st view, or adds points for both clients.
         {
-            playerPoints += 50;
-        }
-        if (clientTwoHeightPrefMet == true)
-        {
-            playerPoints += 50;
-        }
-        if (clientTwoGreenPrefMet == true && clientTwoHeightPrefMet == true)
-        {
-            playerPoints += 100;
-        }
+            if (clientTwoGreenPrefMet == true)
+            {
+                playerPoints += 50;
+            }
+            if (clientTwoHeightPrefMet == true)
+            {
+                playerPoints += 50;
+            }
+            if (clientTwoGreenPrefMet == true && clientTwoHeightPrefMet == true)
+            {
+                playerPoints += 100;
+            }
 
-        if (clientTwoGreenPrefMet == false && clientTwoHeightPrefMet == false)
-        {
-            playerPoints -= 50;
+            if (clientTwoGreenPrefMet == false && clientTwoHeightPrefMet == false)
+            {
+                playerPoints -= 50;
+            }
         }
+        
     }
 }

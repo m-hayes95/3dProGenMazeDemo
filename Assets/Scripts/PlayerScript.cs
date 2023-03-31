@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public GameManager gameManager;
     public float playerSpeed = 5f;
 
-
+    public bool viewSubmittedForClient1 = false, viewSubmittedForClient2 = false;
 
     private void Update()
     {
@@ -17,5 +18,19 @@ public class PlayerScript : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0f, z);
         // Use the translate method to move the game object, indepentantly from frame rate
         transform.Translate(moveDir * playerSpeed * Time.deltaTime);
+
+        // Submit view for client 1 on key prees.
+        if (Input.GetKeyDown(KeyCode.Q) && viewSubmittedForClient1 == false)
+        {
+            gameManager.SubmitViewForClientOne(); // Call the sumbit view method from the game manager script.
+            viewSubmittedForClient1 = true; // Bool used to stop both methods being called at the same time.
+        }
+
+        // Submit view for client 2 after player has submitted view for client 1.
+        if (Input.GetKeyDown(KeyCode.Q) && viewSubmittedForClient1 == true)
+        {
+            gameManager.SubmitViewForClientTwo(); // Call the sumbit view method from the game manager script.
+            viewSubmittedForClient2 = true;
+        }
     }
 }   
