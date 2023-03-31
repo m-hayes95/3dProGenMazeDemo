@@ -1500,6 +1500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1766505355}
   playerSpeed: 3
+  viewSubmittedForClient1: 0
+  viewSubmittedForClient2: 0
 --- !u!54 &1716416037
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1546,6 +1548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientScript: {fileID: 1074304955}
+  player: {fileID: 1716416036}
   clientOneGreenPrefMet: 0
   clientTwoGreenPrefMet: 0
   clientOneHeightPrefMet: 0

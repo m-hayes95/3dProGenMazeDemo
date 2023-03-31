@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         // Submit view for client 2 after player has submitted view for client 1.
-        if (Input.GetKeyDown(KeyCode.Q) && viewSubmittedForClient1 == true)
+        if (Input.GetKeyDown(KeyCode.E) && viewSubmittedForClient1 == true && viewSubmittedForClient2 == false)
         {
             gameManager.SubmitViewForClientTwo(); // Call the sumbit view method from the game manager script.
             viewSubmittedForClient2 = true;
