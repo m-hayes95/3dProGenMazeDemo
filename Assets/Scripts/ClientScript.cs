@@ -20,16 +20,16 @@ public class ClientScript : MonoBehaviour
     // Generated clients.
     public string clientOne;
     public string clientTwo;
-    public string clientThree;
+    
     // Clients green value (Terrain) preference (0 = Dislikes, 1 = Likes).
     public int clientOneGreenPreference;
     public int clientTwoGreenPreference;
-    public int clientThreeGreenPreference;
+    
 
     // Clients perlin noise value (Terrain height) preference (0 = Dislikes, 1 = Likes).
     public int clientOneHeightPreference;
     public int clientTwoHeightPreference;
-    public int clientThreeHeightPreference;
+    
 
     private void Start()
     {
@@ -97,11 +97,7 @@ public class ClientScript : MonoBehaviour
         int randomLastName2 = Random.Range(0, potentialClientLastNames.Length);
         clientTwo = potentialClientFirstNames[randomFirstName2] + potentialClientLastNames[randomLastName2];
         Debug.Log(clientTwo);
-        // Client threes name.
-        int randomFirstName3 = Random.Range(0, potentialClientFirstNames.Length);
-        int randomLastName3 = Random.Range(0, potentialClientLastNames.Length);
-        clientThree = potentialClientFirstNames[randomFirstName3] + potentialClientLastNames[randomLastName3];
-        Debug.Log(clientThree);
+        
 
     } 
 
@@ -113,7 +109,6 @@ public class ClientScript : MonoBehaviour
         clientOneHeightPreference = Random.Range(0, 2);
         clientTwoGreenPreference = Random.Range(0, 2);
         clientTwoHeightPreference = Random.Range(0, 2);
-        clientThreeGreenPreference = Random.Range(0, 2);
-        clientThreeHeightPreference = Random.Range(0, 2);
+        
     }
 }
