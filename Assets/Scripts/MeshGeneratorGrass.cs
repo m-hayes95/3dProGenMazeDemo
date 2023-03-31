@@ -45,6 +45,9 @@ public class MeshGeneratorGrass : MonoBehaviour
     {
         // Apply new shape to scene.
         UpdateMesh();
+
+        Debug.Log("GreenValue is " + greenValue);
+        Debug.Log("PerlinNoise Value is " + perlinNoiseResultMultiplier);
     }
 
     private void CreateShape()

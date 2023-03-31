@@ -12,7 +12,7 @@ public class CameraLookAt : MonoBehaviour
     private void Start()
     {
         // Lock cursor into screen
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
