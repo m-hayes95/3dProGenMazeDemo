@@ -20,5 +20,6 @@ public class ActivateButton : MonoBehaviour
             meshGeneratorLand.ReGenerateMesh();
         }
         
+        
     }
 }

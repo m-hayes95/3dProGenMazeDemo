@@ -84,7 +84,7 @@ public class ClientScript : MonoBehaviour
         else isPerlinNoiseValueOverThreshold= false;
 
         // Generate new clients and likes.
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             GenerateClients();
             ClientsLikes();
